@@ -6,10 +6,33 @@
         <link href="style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-      <canvas id="myCanvas" width="500" height="300" style="border:3px solid #000000;">
+      <canvas id="myCanvas" width="1000" height="600" style="border:3px solid #000000;"></canvas>
+        
+      <script>
         const canvas = document.getElementById("myCanvas");
         const ctx = canvas.getContext("2d");
+      
+    
 
-        <script src="script.js"></script> 
+    const myImg1 = new Image();
+        myImg1.src = 'Images/tt.jpg';
+        myImg1.onload = function(){
+            ctx.drawImage(myImg1, 200, 150, 150, 150);
+    };
+
+    const myImg2 = new Image();
+        myImg2.src = 'Images/ctebrain.jpg';
+        myImg2.onload = function(){
+            ctx.drawImage(myImg2, 600, 150, 170, 100);
+    };
+
+    myCanvas.onmousedown = function(event) {         
+     alert("Location " + event.clientX + ","    
+                           + event.clientY);  
+}
+
+
+        </script>
+        </body>
     </body>
 </html>
