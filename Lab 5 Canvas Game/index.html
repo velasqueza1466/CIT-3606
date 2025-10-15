@@ -31,6 +31,20 @@
                            + event.clientY);  
 }
 
+setInterval(drawFunction, 100);
+let x = 10;
+let y = 10;
+function drawfunction(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    x = Math.random() * canvas.width;
+    y = Math.random() * canvas.height;
+    x2 = Math.random() * canvas.width;
+    y2 = Math.random() * canvas.height;
+}
+
+
+
+
 
         </script>
         </body>
