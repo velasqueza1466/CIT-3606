@@ -1,52 +1,59 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width">
-        <title>CIT 3606 Lab 5</title>
-        <link href="style.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body>
-      <canvas id="myCanvas" width="1000" height="600" style="border:3px solid #000000;"></canvas>
-        
-      <script>
-        const canvas = document.getElementById("myCanvas");
-        const ctx = canvas.getContext("2d");
-      
-    
+<head>
+    <meta name="viewport" content="width=device-width">
+    <title>CIT 3606 Lab 5</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<canvas id="myCanvas" width="1000" height="600" style="border:3px solid #000000;"></canvas>
 
-    const myImg1 = new Image();
-        myImg1.src = 'Images/tt.jpg';
-        myImg1.onload = function(){
-            ctx.drawImage(myImg1, 200, 150, 150, 150);
-    };
+<script>
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
 
-    const myImg2 = new Image();
-        myImg2.src = 'Images/ctebrain.jpg';
-        myImg2.onload = function(){
-            ctx.drawImage(myImg2, 600, 150, 170, 100);
-    };
+const myImg1 = new Image();
+const myImg2 = new Image();
 
-    myCanvas.onmousedown = function(event) {         
-     alert("Location " + event.clientX + ","    
-                           + event.clientY);  
-}
+myImg1.src = 'Images/tt.jpg';
+myImg2.src = 'Images/ctebrain.jpg';
 
-setInterval(drawFunction, 100);
-let x = 10;
-let y = 10;
-function drawfunction(){
+// Initial positions
+let x1 = 200, y1 = 150;
+let x2 = 600, y2 = 150;
+
+// Sizes
+const img1Width = 150, img1Height = 150;
+const img2Width = 170, img2Height = 100;
+
+// Ensure both images are loaded before starting the animation
+let imagesLoaded = 0;
+myImg1.onload = myImg2.onload = function() {
+    imagesLoaded++;
+    if (imagesLoaded === 2) {
+        setInterval(drawFunction, 1000); // Move images every second
+    }
+};
+
+function drawFunction() {
+    // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    x = Math.random() * canvas.width;
-    y = Math.random() * canvas.height;
-    x2 = Math.random() * canvas.width;
-    y2 = Math.random() * canvas.height;
+
+    // Generate new random positions within bounds
+    x1 = Math.random() * (canvas.width - img1Width);
+    y1 = Math.random() * (canvas.height - img1Height);
+    x2 = Math.random() * (canvas.width - img2Width);
+    y2 = Math.random() * (canvas.height - img2Height);
+
+    // Draw images at new positions
+    ctx.drawImage(myImg1, x1, y1, img1Width, img1Height);
+    ctx.drawImage(myImg2, x2, y2, img2Width, img2Height);
 }
 
-
-
-
-
-        </script>
-        </body>
-    </body>
+// Optional: show mouse click coordinates
+myCanvas.onmousedown = function(event) {
+    alert("Location " + event.clientX + "," + event.clientY);
+};
+</script>
+</body>
 </html>
