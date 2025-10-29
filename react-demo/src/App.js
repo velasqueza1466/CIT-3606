@@ -1,33 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
 
-function MyButton(props) {
-  return <button onClick={handler}>{props.text}</button>;}
-
-function handler() {
-  alert("You clicked me!");
-}
+function Pokemon(props) 
+  return 
+  {}
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Andrew  <code>
-            <MyButton text="Andrew's Button"/>
-            <MyButton text="Another Button"/>
-      
-            src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>
+        <Pokemon name="Pikachu" image="pikachu.jpg"/>
+        <Pokemon name="Snorlax" image="snorlax.jpg"/>
+        <Pokemon name="Charmander" image="charmander.wedp"/>
+        <Pokemon name="Dittobase" image="dittobase.png"/>
+        </h1>
       </header>
     </div>
   );
